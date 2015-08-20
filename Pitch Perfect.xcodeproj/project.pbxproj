@@ -156,6 +156,7 @@
 		363CC4831B8508F8000274CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				TargetAttributes = {
 					363CC48A1B8508F8000274CF = {
@@ -408,6 +409,7 @@
 				363CC4AC1B8508F8000274CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		363CC4AD1B8508F8000274CF /* Build configuration list for PBXNativeTarget "Pitch PerfectTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +418,7 @@
 				363CC4AF1B8508F8000274CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
