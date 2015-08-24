@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,20 +12,18 @@
                         <viewControllerLayoutGuide type="top" id="6KQ-KS-F9U"/>
                         <viewControllerLayoutGuide type="bottom" id="4hf-Fh-BGN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" userLabel="mainView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xko-MK-dAo">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xko-MK-dAo" userLabel="mic">
                                 <rect key="frame" x="109" y="264" width="102" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="ACj-Kt-xSZ"/>
                                 </constraints>
-                                <state key="normal" image="Microfone">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="MicrophoneVectorPDF"/>
                                 <connections>
-                                    <action selector="recordButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="edW-cD-7vo"/>
+                                    <action selector="onRecordButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wTE-uO-Nn9"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iU-JR-kr3">
@@ -35,28 +32,40 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Zn-gwg" userLabel="stop">
+                                <rect key="frame" x="128" y="432" width="73" height="76"/>
+                                <state key="normal" image="StopButtonVector">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WnY-x2-AXd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0iU-JR-kr3" firstAttribute="centerX" secondItem="xko-MK-dAo" secondAttribute="centerX" id="20G-oB-Vp7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0iU-JR-kr3" secondAttribute="trailing" constant="103" id="LZ0-H6-BfB"/>
+                            <constraint firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="GIB-4f-XnZ"/>
+                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="97" id="PdW-bN-di2"/>
                             <constraint firstAttribute="centerY" secondItem="xko-MK-dAo" secondAttribute="centerY" id="QCb-Mk-HGK"/>
-                            <constraint firstAttribute="centerY" secondItem="0iU-JR-kr3" secondAttribute="centerY" constant="-86.5" id="xdD-SE-EFT"/>
-                            <constraint firstItem="0iU-JR-kr3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="103" id="yGO-Qg-sdc"/>
+                            <constraint firstItem="0iU-JR-kr3" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="25" id="XIS-8i-OJg"/>
+                            <constraint firstAttribute="centerX" secondItem="kjH-Zn-gwg" secondAttribute="centerX" constant="-4.5" id="nrK-Ee-dK8"/>
+                            <constraint firstItem="4hf-Fh-BGN" firstAttribute="top" secondItem="kjH-Zn-gwg" secondAttribute="bottom" constant="60" id="sde-wa-hP0"/>
                             <constraint firstAttribute="centerX" secondItem="xko-MK-dAo" secondAttribute="centerX" id="zxA-gI-49g"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="recordingLabel" destination="0iU-JR-kr3" id="7oC-SP-vQE"/>
+                        <outlet property="stopButton" destination="kjH-Zn-gwg" id="mIa-57-T3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108.8" y="280.21333333333331"/>
+            <point key="canvasLocation" x="108" y="280"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Microfone" width="100" height="100"/>
+        <image name="MicrophoneVectorPDF" width="100" height="100"/>
+        <image name="StopButtonVector" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

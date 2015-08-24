@@ -11,14 +11,13 @@ import UIKit
 class ViewController: UIViewController
 {
 
-    @IBOutlet var recordingLabel: UILabel!
+    @IBOutlet weak var recordingLabel: UILabel!
+    @IBOutlet weak var stopButton: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        recordingLabel.hidden = true
     }
 
     override func didReceiveMemoryWarning()
@@ -28,11 +27,30 @@ class ViewController: UIViewController
     }
 
 
-    @IBAction func recordButton(sender: UIButton)
+    @IBAction func onRecordButton(sender: UIButton)
     {
         println("in recordButton")
-        recordingLabel.hidden = false
-        
+        setRecordingScreen(true)
+    }
+    @IBAction func onStopButton(sender: UIButton)
+    {
+        println("in recordButton")
+        setRecordingScreen(false)
+    }
+    
+    func setRecordingScreen(isRecording: Bool)
+    {
+        if(isRecording)
+        {
+            recordingLabel.hidden = false
+            stopButton.hidden = false
+        }
+        else
+        {
+            recordingLabel.hidden = true
+            stopButton.hidden = true
+        }
+
     }
 }
 
