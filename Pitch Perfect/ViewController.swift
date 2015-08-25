@@ -28,6 +28,16 @@ class ViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        recordButton.enabled = true
+    }
+    
+    override func viewDidDisappear(animated: Bool)
+    {
+        setRecordingScreen(false)
+    }
 
 
     @IBAction func onRecordButton(sender: UIButton)
@@ -38,7 +48,6 @@ class ViewController: UIViewController
     @IBAction func onStopButton(sender: UIButton)
     {
         println("stop Button Pressed")
-        setRecordingScreen(false)
     }
     
     func setRecordingScreen(isRecording: Bool)
@@ -47,6 +56,9 @@ class ViewController: UIViewController
         {
             recordingLabel.hidden = false
             stopButton.hidden = false
+            
+            //disable the record button as it is already recording
+            recordButton.enabled = false
             
             //setting the recodring animation
             var micRed:UIImage = UIImage(named: "MicrophoneVectorRed")!
@@ -60,6 +72,9 @@ class ViewController: UIViewController
         {
             recordingLabel.hidden = true
             stopButton.hidden = true
+            
+            //enable the recording butto in case the user wants to record again.
+            recordButton.enabled = true
             
             //setting the recodring Button to the Defauls state
             recordButton.imageView!.stopAnimating()
