@@ -13,6 +13,9 @@ class ViewController: UIViewController
 
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
+    
+    var recordingButtonArrayAnimation = [UIImageView]()
     
     override func viewDidLoad()
     {
@@ -29,12 +32,12 @@ class ViewController: UIViewController
 
     @IBAction func onRecordButton(sender: UIButton)
     {
-        println("in recordButton")
+        println("Record Button Pressed")
         setRecordingScreen(true)
     }
     @IBAction func onStopButton(sender: UIButton)
     {
-        println("in recordButton")
+        println("stop Button Pressed")
         setRecordingScreen(false)
     }
     
@@ -44,11 +47,24 @@ class ViewController: UIViewController
         {
             recordingLabel.hidden = false
             stopButton.hidden = false
+            
+            //setting the recodring animation
+            var micRed:UIImage = UIImage(named: "MicrophoneVectorRed")!
+            var micRedBottomHalf:UIImage = UIImage(named: "MicrophoneVectorRedHalf")!
+            recordButton.setImage(micRed, forState: UIControlState.Normal)
+            recordButton.imageView!.animationImages = [micRed, micRedBottomHalf]
+            recordButton.imageView!.animationDuration = 0.8
+            recordButton.imageView!.startAnimating()
         }
         else
         {
             recordingLabel.hidden = true
             stopButton.hidden = true
+            
+            //setting the recodring Button to the Defauls state
+            recordButton.imageView!.stopAnimating()
+            var micBlue:UIImage = UIImage(named: "MicrophoneVectorPDF")!
+            recordButton.setImage(micBlue, forState: UIControlState.Normal)
         }
 
     }

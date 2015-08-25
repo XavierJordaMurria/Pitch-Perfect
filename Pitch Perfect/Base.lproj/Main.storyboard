@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,24 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xko-MK-dAo" userLabel="mic">
-                                <rect key="frame" x="109" y="264" width="102" height="71"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iU-JR-kr3">
+                                <rect key="frame" x="122" y="359" width="77" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="ACj-Kt-xSZ"/>
+                                    <constraint firstAttribute="height" constant="24" id="pee-lW-B9D"/>
                                 </constraints>
-                                <state key="normal" image="MicrophoneVectorPDF"/>
-                                <connections>
-                                    <action selector="onRecordButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wTE-uO-Nn9"/>
-                                </connections>
-                            </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iU-JR-kr3">
-                                <rect key="frame" x="119" y="360" width="82" height="21"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Zn-gwg" userLabel="stop">
-                                <rect key="frame" x="128" y="432" width="73" height="76"/>
+                            <button hidden="YES" opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Zn-gwg" userLabel="stop">
+                                <rect key="frame" x="139" y="467" width="43" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="j0d-w5-eTR"/>
+                                    <constraint firstAttribute="width" constant="43" id="lUY-As-BOe"/>
+                                </constraints>
                                 <state key="normal" image="StopButtonVector">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -41,19 +39,30 @@
                                     <action selector="onStopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WnY-x2-AXd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xko-MK-dAo" userLabel="mic">
+                                <rect key="frame" x="109" y="234" width="102" height="100"/>
+                                <state key="normal" image="MicrophoneVectorPDF"/>
+                                <connections>
+                                    <action selector="onRecordButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wTE-uO-Nn9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="GIB-4f-XnZ"/>
-                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="97" id="PdW-bN-di2"/>
-                            <constraint firstAttribute="centerY" secondItem="xko-MK-dAo" secondAttribute="centerY" id="QCb-Mk-HGK"/>
-                            <constraint firstItem="0iU-JR-kr3" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="25" id="XIS-8i-OJg"/>
-                            <constraint firstAttribute="centerX" secondItem="kjH-Zn-gwg" secondAttribute="centerX" constant="-4.5" id="nrK-Ee-dK8"/>
-                            <constraint firstItem="4hf-Fh-BGN" firstAttribute="top" secondItem="kjH-Zn-gwg" secondAttribute="bottom" constant="60" id="sde-wa-hP0"/>
-                            <constraint firstAttribute="centerX" secondItem="xko-MK-dAo" secondAttribute="centerX" id="zxA-gI-49g"/>
+                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="123" id="3Zv-Hq-DLa"/>
+                            <constraint firstItem="0iU-JR-kr3" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="25" id="Aud-N6-mC6"/>
+                            <constraint firstItem="4hf-Fh-BGN" firstAttribute="top" secondItem="kjH-Zn-gwg" secondAttribute="bottom" constant="60" id="Bfa-Ox-QP6"/>
+                            <constraint firstItem="xko-MK-dAo" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Gjd-5N-2mj"/>
+                            <constraint firstItem="xko-MK-dAo" firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="Q23-gt-fdG"/>
+                            <constraint firstItem="xko-MK-dAo" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="RbW-6I-sYs"/>
+                            <constraint firstItem="xko-MK-dAo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="93" id="WhJ-bP-bIr"/>
+                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="kx2-WQ-qqn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kjH-Zn-gwg" secondAttribute="trailing" constant="122" id="oct-8y-ue9"/>
+                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="top" secondItem="0iU-JR-kr3" secondAttribute="bottom" constant="84" id="qVQ-vx-BBU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="recordButton" destination="xko-MK-dAo" id="61z-h7-X1U"/>
                         <outlet property="recordingLabel" destination="0iU-JR-kr3" id="7oC-SP-vQE"/>
                         <outlet property="stopButton" destination="kjH-Zn-gwg" id="mIa-57-T3w"/>
                     </connections>

@@ -10,9 +10,9 @@
 		363CC4911B8508F8000274CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CC4901B8508F8000274CF /* AppDelegate.swift */; };
 		363CC4931B8508F8000274CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CC4921B8508F8000274CF /* ViewController.swift */; };
 		363CC4961B8508F8000274CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363CC4941B8508F8000274CF /* Main.storyboard */; };
-		363CC4981B8508F8000274CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363CC4971B8508F8000274CF /* Images.xcassets */; };
 		363CC49B1B8508F8000274CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363CC4991B8508F8000274CF /* LaunchScreen.xib */; };
 		363CC4A71B8508F8000274CF /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CC4A61B8508F8000274CF /* Pitch_PerfectTests.swift */; };
+		36C9C12F1B8C64EF009C242B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C9C12E1B8C64EF009C242B /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,11 +31,11 @@
 		363CC4901B8508F8000274CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		363CC4921B8508F8000274CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		363CC4951B8508F8000274CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		363CC4971B8508F8000274CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		363CC49A1B8508F8000274CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		363CC4A01B8508F8000274CF /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		363CC4A51B8508F8000274CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		363CC4A61B8508F8000274CF /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
+		36C9C12E1B8C64EF009C242B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 				363CC4901B8508F8000274CF /* AppDelegate.swift */,
 				363CC4921B8508F8000274CF /* ViewController.swift */,
 				363CC4941B8508F8000274CF /* Main.storyboard */,
-				363CC4971B8508F8000274CF /* Images.xcassets */,
 				363CC4991B8508F8000274CF /* LaunchScreen.xib */,
+				36C9C12E1B8C64EF009C242B /* Images.xcassets */,
 				363CC48E1B8508F8000274CF /* Supporting Files */,
 			);
 			path = "Pitch Perfect";
@@ -192,9 +192,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C9C12F1B8C64EF009C242B /* Images.xcassets in Resources */,
 				363CC4961B8508F8000274CF /* Main.storyboard in Resources */,
 				363CC49B1B8508F8000274CF /* LaunchScreen.xib in Resources */,
-				363CC4981B8508F8000274CF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
