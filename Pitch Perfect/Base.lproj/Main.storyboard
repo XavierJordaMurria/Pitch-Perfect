@@ -27,9 +27,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Zn-gwg" userLabel="stop">
-                                <rect key="frame" x="139" y="467" width="43" height="41"/>
+                                <rect key="frame" x="139" y="473" width="43" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="j0d-w5-eTR"/>
+                                    <constraint firstAttribute="height" constant="53" id="j0d-w5-eTR"/>
                                     <constraint firstAttribute="width" constant="43" id="lUY-As-BOe"/>
                                 </constraints>
                                 <state key="normal" image="StopButtonVector">
@@ -50,16 +50,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="123" id="3Zv-Hq-DLa"/>
                             <constraint firstItem="0iU-JR-kr3" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="25" id="Aud-N6-mC6"/>
-                            <constraint firstItem="4hf-Fh-BGN" firstAttribute="top" secondItem="kjH-Zn-gwg" secondAttribute="bottom" constant="60" id="Bfa-Ox-QP6"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Gjd-5N-2mj"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="Q23-gt-fdG"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="RbW-6I-sYs"/>
+                            <constraint firstItem="4hf-Fh-BGN" firstAttribute="top" secondItem="kjH-Zn-gwg" secondAttribute="bottom" constant="42" id="VeT-Nl-xYb"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="93" id="WhJ-bP-bIr"/>
-                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="kx2-WQ-qqn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kjH-Zn-gwg" secondAttribute="trailing" constant="122" id="oct-8y-ue9"/>
-                            <constraint firstItem="kjH-Zn-gwg" firstAttribute="top" secondItem="0iU-JR-kr3" secondAttribute="bottom" constant="84" id="qVQ-vx-BBU"/>
+                            <constraint firstAttribute="centerX" secondItem="kjH-Zn-gwg" secondAttribute="centerX" constant="-0.5" id="uvB-bn-Pjo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="ZRg-2M-iuW"/>
@@ -73,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="-130" y="-198"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="eNL-V4-o0h">
             <objects>
-                <viewController id="5cf-BW-gwK" sceneMemberID="viewController">
+                <viewController id="5cf-BW-gwK" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8OD-0l-Rva"/>
                         <viewControllerLayoutGuide type="bottom" id="tp1-N4-SM4"/>
@@ -84,7 +81,57 @@
                     <view key="view" contentMode="scaleToFill" id="Wz4-mu-ye2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCe-hL-Jzl">
+                                <rect key="frame" x="46" y="107" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="QBj-7j-Dbr"/>
+                                    <constraint firstAttribute="height" constant="88" id="wh0-ee-7q1"/>
+                                </constraints>
+                                <state key="normal" image="SlowSnail">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playSlowAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="KxF-Sz-QFi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-Ra-fK0">
+                                <rect key="frame" x="186" y="107" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="EYN-7h-YJg"/>
+                                    <constraint firstAttribute="width" constant="88" id="x1r-S0-7FL"/>
+                                </constraints>
+                                <state key="normal" image="FastRabit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playFastAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="Rbu-Ru-Rxn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfK-Mp-Cg9" userLabel="stop">
+                                <rect key="frame" x="139" y="473" width="43" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="YvG-cy-UXJ"/>
+                                    <constraint firstAttribute="width" constant="43" id="dSw-Jd-Nio"/>
+                                </constraints>
+                                <state key="normal" image="StopButtonVector">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStopAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="Fpt-A5-POq"/>
+                                    <action selector="onStopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fzm-sh-2y3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x6h-Ra-fK0" firstAttribute="top" secondItem="8OD-0l-Rva" secondAttribute="bottom" constant="43" id="AA8-1K-iUJ"/>
+                            <constraint firstAttribute="centerX" secondItem="cfK-Mp-Cg9" secondAttribute="centerX" constant="-0.5" id="EMt-1h-d46"/>
+                            <constraint firstItem="VCe-hL-Jzl" firstAttribute="leading" secondItem="Wz4-mu-ye2" secondAttribute="leadingMargin" constant="30" id="Q9R-se-dXp"/>
+                            <constraint firstItem="tp1-N4-SM4" firstAttribute="top" secondItem="cfK-Mp-Cg9" secondAttribute="bottom" constant="42" id="aDZ-Pt-kkf"/>
+                            <constraint firstItem="VCe-hL-Jzl" firstAttribute="top" secondItem="8OD-0l-Rva" secondAttribute="bottom" constant="43" id="nWZ-OO-kAA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x6h-Ra-fK0" secondAttribute="trailing" constant="30" id="pWR-k6-zMV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Ao-MF-y5l"/>
                 </viewController>
@@ -112,7 +159,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FastRabit" width="200" height="200"/>
         <image name="MicrophoneVectorPDF" width="100" height="100"/>
+        <image name="SlowSnail" width="200" height="200"/>
         <image name="StopButtonVector" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
