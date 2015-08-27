@@ -148,6 +148,19 @@
                                     <action selector="onPlayDarthVaderAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="mDt-CJ-vfv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sl-H3-vZh">
+                                <rect key="frame" x="116" y="240" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="Elq-rx-DOM"/>
+                                    <constraint firstAttribute="width" constant="88" id="YvR-9D-cqB"/>
+                                </constraints>
+                                <state key="normal" image="chipmunkVader">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPlayChipmunkVader:" destination="5cf-BW-gwK" eventType="touchUpInside" id="cd1-rL-RUD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -157,7 +170,9 @@
                             <constraint firstAttribute="centerX" secondItem="cfK-Mp-Cg9" secondAttribute="centerX" constant="-0.5" id="EMt-1h-d46"/>
                             <constraint firstItem="GhR-rn-gFV" firstAttribute="leading" secondItem="Wz4-mu-ye2" secondAttribute="leadingMargin" constant="30" id="Hqx-F5-uFf"/>
                             <constraint firstItem="VCe-hL-Jzl" firstAttribute="leading" secondItem="Wz4-mu-ye2" secondAttribute="leadingMargin" constant="30" id="Q9R-se-dXp"/>
+                            <constraint firstItem="7Sl-H3-vZh" firstAttribute="top" secondItem="8OD-0l-Rva" secondAttribute="bottom" constant="176" id="WYG-uf-oLj"/>
                             <constraint firstItem="tp1-N4-SM4" firstAttribute="top" secondItem="cfK-Mp-Cg9" secondAttribute="bottom" constant="42" id="aDZ-Pt-kkf"/>
+                            <constraint firstItem="7Sl-H3-vZh" firstAttribute="leading" secondItem="Wz4-mu-ye2" secondAttribute="leadingMargin" constant="100" id="gHC-An-um0"/>
                             <constraint firstItem="kBz-rm-q3P" firstAttribute="top" secondItem="x6h-Ra-fK0" secondAttribute="bottom" constant="125" id="gcX-4T-fj1"/>
                             <constraint firstItem="VCe-hL-Jzl" firstAttribute="top" secondItem="8OD-0l-Rva" secondAttribute="bottom" constant="43" id="nWZ-OO-kAA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x6h-Ra-fK0" secondAttribute="trailing" constant="30" id="pWR-k6-zMV"/>
@@ -194,6 +209,7 @@
         <image name="SlowSnail" width="200" height="200"/>
         <image name="StopButtonVector" width="100" height="100"/>
         <image name="chipmunk" width="200" height="200"/>
+        <image name="chipmunkVader" width="200" height="200"/>
         <image name="darthvader" width="200" height="200"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

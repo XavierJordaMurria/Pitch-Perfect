@@ -21,13 +21,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     var audioRecorder: AVAudioRecorder!
     var recordingButtonArrayAnimation = [UIImageView]()
     var recordedAudio: RecordedAudio!
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-    }
 
     override func didReceiveMemoryWarning()
     {
@@ -72,13 +65,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
         {
             recordedAudio = RecordedAudio(_filePathUrl: recorder.url,_title: recorder.url.lastPathComponent!)
             
-            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+            performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         }
         else
         {
             println("Recording was NOT successfully")
             recordButton.enabled = true
             stopButton.hidden = true
+            
+            let alertController = UIAlertController(title: "Failure Recording", message:
+                "Upps! something went wrong with your audio recording file. try it again", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     

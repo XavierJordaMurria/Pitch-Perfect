@@ -59,7 +59,7 @@ class PlaySoundsViewController: UIViewController
     @IBAction func onStopAudio(sender: AnyObject)
     {
         println("onStopAudio")
-        audioPlayer.stop()
+        stopPlayingAudio()
     }
     
     @IBAction func onPlayChipmunkAudio(sender: AnyObject)
@@ -68,6 +68,11 @@ class PlaySoundsViewController: UIViewController
         playAudioWithVariablePitch(1000)
     }
     
+    @IBAction func onPlayChipmunkVader(sender: AnyObject)
+    {
+        println("onPlayChipmunkVader")
+        playAudioReverb(50.0)
+    }
     @IBAction func onPlayDarthVaderAudio(sender: AnyObject)
     {
         println("onPlayDarthVaderAudio")
@@ -80,10 +85,10 @@ class PlaySoundsViewController: UIViewController
     */
     func playAudioCustomSpeed(speed: Float)
     {
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer.stop()
+        stopPlayingAudio()
+        
         audioPlayer.rate = speed
+        audioPlayer.currentTime = 0.0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
@@ -93,9 +98,7 @@ class PlaySoundsViewController: UIViewController
     */
     func playAudioWithVariablePitch(pitch: Float)
     {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopPlayingAudio()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -111,6 +114,35 @@ class PlaySoundsViewController: UIViewController
         audioEngine.startAndReturnError(nil)
         
         audioPlayerNode.play()
+    }
+
+    func playAudioReverb(reverb: Float)
+    {
+        stopPlayingAudio()
+        
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        var reverbEffect = AVAudioUnitReverb()
+        
+        reverbEffect.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
+        reverbEffect.wetDryMix = reverb
+        audioEngine.attachNode(reverbEffect)
+        
+        audioEngine.connect(audioPlayerNode, to: reverbEffect, format: nil)
+        audioEngine.connect(reverbEffect, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+        
+        audioPlayerNode.play()
+    }
+    
+    func stopPlayingAudio()
+    {
+        audioEngine.stop()
+        audioEngine.reset()
+        audioPlayer.stop()
     }
 }
 
