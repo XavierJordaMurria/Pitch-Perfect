@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iU-JR-kr3">
-                                <rect key="frame" x="122" y="359" width="77" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="pee-lW-B9D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Zn-gwg" userLabel="stop">
                                 <rect key="frame" x="139" y="473" width="43" height="53"/>
                                 <constraints>
@@ -46,10 +37,19 @@
                                     <action selector="onRecordButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wTE-uO-Nn9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iU-JR-kr3">
+                                <rect key="frame" x="108" y="342" width="105" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="pee-lW-B9D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0iU-JR-kr3" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="25" id="Aud-N6-mC6"/>
+                            <constraint firstItem="0iU-JR-kr3" firstAttribute="top" secondItem="xko-MK-dAo" secondAttribute="bottom" constant="8" id="Aud-N6-mC6"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Gjd-5N-2mj"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="centerX" secondItem="0iU-JR-kr3" secondAttribute="centerX" id="Q23-gt-fdG"/>
                             <constraint firstItem="xko-MK-dAo" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="RbW-6I-sYs"/>
@@ -82,7 +82,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCe-hL-Jzl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCe-hL-Jzl" userLabel="snailButton">
                                 <rect key="frame" x="46" y="107" width="88" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="QBj-7j-Dbr"/>
@@ -95,7 +95,7 @@
                                     <action selector="playSlowAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="KxF-Sz-QFi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-Ra-fK0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-Ra-fK0" userLabel="rabitButton">
                                 <rect key="frame" x="186" y="107" width="88" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="EYN-7h-YJg"/>
@@ -122,13 +122,43 @@
                                     <action selector="onStopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fzm-sh-2y3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhR-rn-gFV" userLabel="chipmunkButton">
+                                <rect key="frame" x="46" y="320" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="HfL-7x-pha"/>
+                                    <constraint firstAttribute="height" constant="88" id="VcQ-M4-VR4"/>
+                                </constraints>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPlayChipmunkAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="NLN-fH-rii"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBz-rm-q3P" userLabel="darthVaderButton">
+                                <rect key="frame" x="186" y="320" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="Wn4-Xi-l1W"/>
+                                    <constraint firstAttribute="width" constant="88" id="xVk-O8-VHW"/>
+                                </constraints>
+                                <state key="normal" image="darthvader">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPlayDarthVaderAudio:" destination="5cf-BW-gwK" eventType="touchUpInside" id="mDt-CJ-vfv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kBz-rm-q3P" secondAttribute="trailing" constant="30" id="3Fy-up-r5Q"/>
                             <constraint firstItem="x6h-Ra-fK0" firstAttribute="top" secondItem="8OD-0l-Rva" secondAttribute="bottom" constant="43" id="AA8-1K-iUJ"/>
+                            <constraint firstItem="GhR-rn-gFV" firstAttribute="top" secondItem="VCe-hL-Jzl" secondAttribute="bottom" constant="125" id="AI5-i9-QUw"/>
                             <constraint firstAttribute="centerX" secondItem="cfK-Mp-Cg9" secondAttribute="centerX" constant="-0.5" id="EMt-1h-d46"/>
+                            <constraint firstItem="GhR-rn-gFV" firstAttribute="leading" secondItem="Wz4-mu-ye2" secondAttribute="leadingMargin" constant="30" id="Hqx-F5-uFf"/>
                             <constraint firstItem="VCe-hL-Jzl" firstAttribute="leading" secondItem="Wz4-mu-ye2" secondAttribute="leadingMargin" constant="30" id="Q9R-se-dXp"/>
                             <constraint firstItem="tp1-N4-SM4" firstAttribute="top" secondItem="cfK-Mp-Cg9" secondAttribute="bottom" constant="42" id="aDZ-Pt-kkf"/>
+                            <constraint firstItem="kBz-rm-q3P" firstAttribute="top" secondItem="x6h-Ra-fK0" secondAttribute="bottom" constant="125" id="gcX-4T-fj1"/>
                             <constraint firstItem="VCe-hL-Jzl" firstAttribute="top" secondItem="8OD-0l-Rva" secondAttribute="bottom" constant="43" id="nWZ-OO-kAA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x6h-Ra-fK0" secondAttribute="trailing" constant="30" id="pWR-k6-zMV"/>
                         </constraints>
@@ -163,6 +193,8 @@
         <image name="MicrophoneVectorPDF" width="100" height="100"/>
         <image name="SlowSnail" width="200" height="200"/>
         <image name="StopButtonVector" width="100" height="100"/>
+        <image name="chipmunk" width="200" height="200"/>
+        <image name="darthvader" width="200" height="200"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
