@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordSoundsViewController.swift
 //  Pitch Perfect
 //
 //  Created by Xavier Jorda Murria on 19/08/2015.
@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController
+class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
 {
 
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     
+    var audioRecorder: AVAudioRecorder!
     var recordingButtonArrayAnimation = [UIImageView]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+            }
 
     override func didReceiveMemoryWarning()
     {
@@ -39,16 +42,33 @@ class ViewController: UIViewController
         setRecordingScreen(false)
     }
 
+    // MARK: - IBActions
 
     @IBAction func onRecordButton(sender: UIButton)
     {
         println("Record Button Pressed")
+
         setRecordingScreen(true)
+        startRecording()
     }
     @IBAction func onStopButton(sender: UIButton)
     {
         println("stop Button Pressed")
+        setRecordingScreen(false)
+        audioRecorder.stop()
+        
+        var audioSession = AVAudioSession.sharedInstance()
+        audioSession.setActive(false, error: nil)
     }
+    
+    // MARK: - AVAudioRecorderDelegate methods
+    
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool)
+    {
+        
+    }
+    
+    // MARK: - Internal Methods
     
     func setRecordingScreen(isRecording: Bool)
     {
@@ -82,6 +102,32 @@ class ViewController: UIViewController
             recordButton.setImage(micBlue, forState: UIControlState.Normal)
         }
 
+    }
+    
+    func startRecording()
+    {
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        
+        //let currentDateTime = NSDate()
+        //let formatter = NSDateFormatter()
+        //formatter.dateFormat = "ddMMyyyy-HHmmss"
+        
+        //let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
+        
+        let recordingName = "my_audio.wav"
+        
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        println(filePath)
+        
+        var session = AVAudioSession.sharedInstance()
+        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        
+        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        audioRecorder.delegate = self
+        audioRecorder.meteringEnabled = true
+        audioRecorder.prepareToRecord()
+        audioRecorder.record()
     }
 }
 
