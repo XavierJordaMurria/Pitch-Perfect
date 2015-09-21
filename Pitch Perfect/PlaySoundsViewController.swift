@@ -12,6 +12,9 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController
 {
     var audioPlayer: AVAudioPlayer!
+    var audioPlayer2: AVAudioPlayer!
+    var audioPlayer3: AVAudioPlayer!
+    
     var recordedAudio: RecordedAudio!
     var audioEngine: AVAudioEngine!
     var audioFile:AVAudioFile!
@@ -27,6 +30,12 @@ class PlaySoundsViewController: UIViewController
         var error:NSError?
         audioPlayer = AVAudioPlayer(contentsOfURL: recordedAudio.filePathUrl, error: &error)
         audioPlayer.enableRate = true
+        
+        audioPlayer2 = AVAudioPlayer(contentsOfURL: recordedAudio.filePathUrl, error: &error)
+        audioPlayer2.enableRate = true
+        
+        audioPlayer3 = AVAudioPlayer(contentsOfURL: recordedAudio.filePathUrl, error: &error)
+        audioPlayer3.enableRate = true
     }
     
     override func didReceiveMemoryWarning()
@@ -71,7 +80,12 @@ class PlaySoundsViewController: UIViewController
     @IBAction func onPlayChipmunkVader(sender: AnyObject)
     {
         println("onPlayChipmunkVader")
-        playAudioReverb(50.0)
+        playAudioEcho()
+    }
+
+    @IBAction func dragInside(sender: AnyObject)
+    {
+      playAudioReverb(70.0)
     }
     @IBAction func onPlayDarthVaderAudio(sender: AnyObject)
     {
@@ -136,6 +150,36 @@ class PlaySoundsViewController: UIViewController
         audioEngine.startAndReturnError(nil)
         
         audioPlayerNode.play()
+    }
+    
+    func playAudioEcho()
+    {
+        stopPlayingAudio()
+        
+        audioPlayer.currentTime = 0;
+        audioPlayer.play()
+        
+        let delay:NSTimeInterval = 0.3//100ms
+        var playtime:NSTimeInterval
+       
+        playtime = audioPlayer2.deviceCurrentTime + delay
+        
+        audioPlayer2.stop()
+        audioPlayer2.currentTime = 0
+        audioPlayer2.volume = 0.8;
+        
+        audioPlayer2.playAtTime(playtime)
+        
+        let delay2:NSTimeInterval = 0.3//100ms
+        
+        var playtime2:NSTimeInterval
+        playtime2 = audioPlayer2.deviceCurrentTime + delay2
+        
+        audioPlayer2.stop()
+        audioPlayer2.currentTime = 0
+        audioPlayer2.volume = 0.8;
+        
+        audioPlayer2.playAtTime(playtime2)
     }
     
     func stopPlayingAudio()
