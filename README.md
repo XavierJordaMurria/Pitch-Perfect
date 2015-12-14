@@ -15,3 +15,4 @@ Key points to highlight:
 -Search documentation, resolve bugs, and read other people’s code
 
 
+<center><img alt="Pitch-Perfect app" src="PerfectPitch.gif" width="220" /></center>
